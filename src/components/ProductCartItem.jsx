@@ -30,6 +30,61 @@ export default function ProductCartItem({
         onQuantityChange(product.id, safeQuantity);
     };
 
+    const decreaseQuantity = ()=> updateQuantity(quantity - 1);
+    const increaseQuantity = ()=> updateQuantity(quantity + 1);
 
-    
+    const removeItem = () => onRemove(product.id);
+
+    return(
+
+        <article className="product-cart-card">
+            <div className="product-cart-card__media">
+                <img
+                 className="product-cart-card__image"
+                 src= {product.image}
+                 alt= {product.name}
+                />
+                <span className="product-cart-card__image-label">Product</span>
+            </div>
+            {/* Product title, short description */}
+            <div className="product-cart-card__details">
+                <div className="product-cart-card__eyebrow">IN YOUR SHOPPING BAG</div>
+                <h3 className="product-cart-card__title">{product.name}</h3>
+
+                <div className="product-cart-card__meta">
+                    {product.color &&(
+                        <span className="product-cart-card__meta-item">
+                            <span className="product-cart-card__meta-label">Color</span>
+                            <span className="product-cart-card__meta-value">{product.color}</span>
+                        </span>
+                    )}
+
+                    {product.storage &&(
+                        <span className="product-cart-card__meta-item">
+                            <span className="product-cart-card__meta-label">Storage</span>
+                            <span className="product-cart-card__meta-value">{product.storage}</span>
+                        </span>
+                    )}
+
+                    {product.price &&(
+                        <span className="product-cart-card__meta-item">
+                            <span className="product-cart-card__meta-label">Price</span>
+                            <span className="product-cart-card__meta-value">{product.price}</span>
+                        </span>
+                    )}
+                </div>
+                <span className="product-cart-card__availability">
+                    <span className="product-cart-card__availability-dot" />
+                    In Stock
+                </span>
+            </div>
+        </article>
+
+
+
+
+    )
+
+
+
 }
