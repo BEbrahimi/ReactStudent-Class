@@ -78,6 +78,53 @@ export default function ProductCartItem({
                     In Stock
                 </span>
             </div>
+
+            <div className="product-cart-card__quantity">
+                <div className="product-cart-card__section-label"> Quantity </div>
+                <div className="quantity-stepper">
+                    <button className="quantity-stepper__button"
+                        type="button"
+                        onClick={decreaseQuantity}
+                        disabled={quantity <= 1}
+                        title="Decrease Quantity"
+                    >
+                        -
+                    </button>
+
+                    <input 
+                    className="quantity-stepper__input"
+                    type="number"
+                    min="1"
+                    value={quantity}
+                    onChange={(event)=> updateQuantity(event.target.value)}
+                    />
+
+                    <button className="quantity-stepper__button"
+                        type="button"
+                        onClick={increaseQuantity}
+                        title="Increase Quantity"
+                        
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <div className="product-cart-card__price">
+                <span className="product-cart-card__section-label">Total Item</span>
+                <strong>{currency(product.price * quantity)}</strong>
+                <span className="product-cart-card__unit-price">
+                    {currency(product.price)} / item
+                </span>
+            </div>
+
+            <button className="product-cart-card__remove"
+                type="button"
+                onClick={removeItem}
+                title="Remove Item"
+            >
+                Remove
+            </button>
         </article>
 
 

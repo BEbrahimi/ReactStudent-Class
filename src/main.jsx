@@ -8,5 +8,6 @@ createRoot(document.getElementById('root')).render(
     <ProductCartItem/>
     <ProductCartItem/>
     <ProductCartItem/>
+    <ProductCartItem/>
   </div>
 )
